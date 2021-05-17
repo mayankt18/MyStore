@@ -1,0 +1,112 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Homepage{% endblock %}
+{% block content %}
+
+
+<!-- CAROUSEL -->
+<div id="carouselExampleControls" class="carousel slide custom" data-bs-ride="carousel">
+  <div class="carousel-inner custom-inner">
+    <div class="carousel-item active" data-bs-interval="3000">
+      <img src="{% static 'images/carousel1/1.webp' %}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item" data-bs-interval="3000">
+      <img src="{% static 'images/carousel1/2.webp' %}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item" data-bs-interval="3000">
+      <img src="{% static 'images/carousel1/3.jpg' %}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item" data-bs-interval="3000">
+      <img src="{% static 'images/carousel1/4.webp' %}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item" data-bs-interval="3000">
+      <img src="{% static 'images/carousel1/5.webp' %}" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<!-- END CAROUSEL -->
+<br>
+<!-- SALE -->
+<div class="p-4 p-md-5 mb-4 text-dark rounded bg-info container" id="sale">
+  <div class="col-md-6 px-0 container">
+    <h1 class="display-4 fst-italic">Sale is Live Now !!!</h1>
+    <p class="lead my-3">Get flat 90% discount on products starting with Rs. 999,
+      and flat 50% discount on products starting with Rs. 499. So, what are you waiting for. <strong>Hurry
+        Up!!!</strong></p>
+    <p class="lead mb-0"><a href="{%url 'products'%}" class="text-dark fw-bold btn btn-warning">View Products</a></p>
+  </div>
+</div>
+<!-- SALE ENDS -->
+<br>
+
+<!-- Owl carousel -->
+
+<!-- Mobiles -->
+<div class="mobiles">
+  <div class="container">
+    <h2>MyStore | Mobiles</h2>
+    <div class="owl-carousel">
+      {% for c in Mobiles %}
+      <div class="item"><a href="{% url 'product-detail' c.id %}"><img src="{{ c.image.url }}" alt=""
+        height="300px"></a></a><span class="fw-bold">{{c.name}}</span><br><span class="fs-5">{{c.discountedPrice}}</span>
+  </div>
+    {% endfor %}
+  </div>
+</div>
+</div>
+
+
+<!-- Laptops -->
+<div class="laptops">
+  <div class="container">
+    <h2>MyStore | Laptops</h2>
+    <div class="owl-carousel">
+      {% for c in Laptops %}
+      <div class="item"><a href="{% url 'product-detail' c.id %}"><img src="{{ c.image.url }}" alt=""
+        height="300px"></a></a><span class="fw-bold">{{c.name}}</span><br><span class="fs-5">{{c.discountedPrice}}</span>
+  </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+<!-- Topwear -->
+<div class="topwear">
+  <div class="container">
+    <h2>MyStore | Topwear</h2>
+    <div class="owl-carousel">
+      {% for c in Topwear %}
+      <div class="item"><a href="{% url 'product-detail' c.id %}"><img src="{{ c.image.url }}" alt=""
+        height="300px"></a></a><span class="fw-bold">{{c.name}}</span><br><span class="fs-5">{{c.discountedPrice}}</span>
+  </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+<!-- Bottomwear -->
+<div class="bottomwear">
+  <div class="container">
+    <h2>MyStore | Bottomwear</h2>
+    <div class="owl-carousel">
+      {% for c in Bottomwear %}
+      <div class="item"><a href="{% url 'product-detail' c.id %}"><img src="{{ c.image.url }}" alt=""
+        height="300px"></a></a><span class="fw-bold">{{c.name}}</span><br><span class="fs-5">{{c.discountedPrice}}</span>
+  </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
