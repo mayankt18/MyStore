@@ -1,0 +1,27 @@
+{% extends 'app/user/common.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="container col-lg-4 p-3 mt-1 border rounded">
+
+    <form>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="Password1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="Password1">
+        </div>
+    </form>
+    <div class="text-center">
+        <button type="submit" class="btn btn-success text-center">Submit</button>
+    </div>
+</div>
+<div class="text-center m-2 p-2">
+    <p>New User?</p>
+    <a href="{% url 'register' %}" class="btn btn-outline-success" role="button" aria-pressed="true">SignUp</a>
+</div>
+
+{% endblock %}

@@ -29,3 +29,9 @@ def products(request, tag=None):
     else:
         product = Product.objects.filter(category=tag)
     return render(request, 'app/product.html', {'product':product})
+
+def login(request):
+    return render(request, 'app/user/login.html')
+
+def register(request):
+    return render(request, 'app/user/register.html')
