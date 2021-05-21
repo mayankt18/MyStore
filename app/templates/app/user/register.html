@@ -1,48 +1,45 @@
 {% extends 'app/user/common.html' %}
+
+
 {% block title %}Register{% endblock %}
 
 {% block content %}
+
 <div class="container col-lg-4 p-3 mt-1 border rounded">
 
-    <form>
-        <h3 class="alert alert-success border rounded pt-2" style="text-align:center;">
-            Create Account
-        </h3>
+ 
 
-        <div class="row">
-            <div class="col">
-                <label for="firstname" class="form-label">First Name</label>
-                <input type="text" class="form-control" placeholder="First name" aria-label="First name">
+    <form action="" method="post" novalidate class="shadow p-5">
+        {% if messages %}
+            {% for msg in messages %}
+                <p {% if msg.tags %}
+                    class="alert alert-{{msg.tags}}"
+                {% endif %}>{{msg}}</p>
+            {% endfor %}
+        {% endif %}
+        {% csrf_token %}
+        {% for fm in form %}
+            <div class="form-group mb-3">
+                {{fm.label_tag}} {{fm}} <small class="text-danger">
+                    {{fm.errors|striptags}}</small>
             </div>
-            <div class="col">
-                <label for="lastname" class="form-label">Last Name</label>
-                <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
-            </div>
-        </div>
-        <br>
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-        </div>
-        <div class="mb-3">
-            <label for="Password1" class="form-label">Password</label>
-            <input type="password" class="form-control" id="Password1">
-        </div>
-        <div class="mb-3">
-            <label for="Password2" class="form-label">Confirm Password</label>
-            <input type="password" class="form-control" id="Password2">
-        </div>
-        <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1" style="color:green">Agree to our terms and
-                conditions</label>
-        </div>
-        <br>
+        {% endfor %}
         <div class="text-center">
-            <button type="submit" class="btn btn-success text-center">Submit</button>
+            <input type="submit" value="Sign Up" class="btn btn-success">
         </div>
+        <br>
+        <div class="text-center m-2 p-2">
+            <p>Existing User?</p>
+            <a href="{% url 'login' %}" class="btn btn-outline-success" role="button" aria-pressed="true">Login</a>
+        </div>
+        {% if form.non_field_error %}
+            {% for error in form.non_field_error %}
+                <p class="alert alert-danger">{{error}}</p>
+            {% endfor %}
+        {% endif %}
     </form>
+    
 
 </div>
+
 {% endblock %}

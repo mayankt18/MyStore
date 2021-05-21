@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from . models import *
+from .forms import *
+from django.contrib import messages
 
 
 def homepage(request):
@@ -34,4 +36,12 @@ def login(request):
     return render(request, 'app/user/login.html')
 
 def register(request):
-    return render(request, 'app/user/register.html')
+    if request.method == 'POST':
+        form = CustomerRegistrationForm(request.POST)
+
+        if form.is_valid():
+            messages.success(request, "Congratulations !!! New Account created successfully :)")
+            form.save()
+    else:
+        form = CustomerRegistrationForm()
+    return render(request, 'app/user/register.html', {'form':form})
