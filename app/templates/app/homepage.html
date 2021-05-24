@@ -56,7 +56,7 @@
     <div class="owl-carousel">
       {% for c in Mobiles %}
       <div class="item"><a href="{% url 'product-detail' c.id %}"><img src="{{ c.image.url }}" alt=""
-        height="300px"></a></a><span class="fw-bold">{{c.name}}</span><br><span class="fs-5">{{c.discountedPrice}}</span>
+        height="300px"></a></a><span class="fw-bold">{{c.name}}</span><br><span class="fs-5">Rs.{{c.discountedPrice}}</span>
   </div>
     {% endfor %}
   </div>
@@ -71,7 +71,7 @@
     <div class="owl-carousel">
       {% for c in Laptops %}
       <div class="item"><a href="{% url 'product-detail' c.id %}"><img src="{{ c.image.url }}" alt=""
-        height="300px"></a></a><span class="fw-bold">{{c.name}}</span><br><span class="fs-5">{{c.discountedPrice}}</span>
+        height="300px"></a></a><span class="fw-bold">{{c.name}}</span><br><span class="fs-5">Rs.{{c.discountedPrice}}</span>
   </div>
       {% endfor %}
     </div>
@@ -86,7 +86,7 @@
     <div class="owl-carousel">
       {% for c in Topwear %}
       <div class="item"><a href="{% url 'product-detail' c.id %}"><img src="{{ c.image.url }}" alt=""
-        height="300px"></a></a><span class="fw-bold">{{c.name}}</span><br><span class="fs-5">{{c.discountedPrice}}</span>
+        height="300px"></a></a><span class="fw-bold">{{c.name}}</span><br><span class="fs-5">Rs.{{c.discountedPrice}}</span>
   </div>
       {% endfor %}
     </div>
@@ -101,7 +101,7 @@
     <div class="owl-carousel">
       {% for c in Bottomwear %}
       <div class="item"><a href="{% url 'product-detail' c.id %}"><img src="{{ c.image.url }}" alt=""
-        height="300px"></a></a><span class="fw-bold">{{c.name}}</span><br><span class="fs-5">{{c.discountedPrice}}</span>
+        height="300px"></a></a><span class="fw-bold">{{c.name}}</span><br><span class="fs-5">Rs.{{c.discountedPrice}}</span>
   </div>
       {% endfor %}
     </div>

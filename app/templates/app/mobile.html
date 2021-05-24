@@ -1,8 +1,0 @@
-{% extends 'app/base.html' %}
-{% block title %}Mobiles{% endblock %}
-
-{% block content %}
-    {% for m in mobiles %}
-        <img src="{{ m.image.url }}" alt="">
-    {% endfor %}
-{% endblock %}

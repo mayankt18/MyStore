@@ -21,9 +21,6 @@ def product_detail(request, id):
     product = Product.objects.get(id=id)
     return render(request, 'app/productinfo.html', {'p':product})
 
-def mobiles(request):
-    mobiles = Product.objects.filter(category="M")
-    return render(request, 'app/mobile.html', {'mobiles':mobiles})
 
 def products(request, tag=None):
     if tag==None:
@@ -32,8 +29,10 @@ def products(request, tag=None):
         product = Product.objects.filter(category=tag)
     return render(request, 'app/product.html', {'product':product})
 
+
 def login(request):
     return render(request, 'app/user/login.html')
+
 
 def register(request):
     if request.method == 'POST':
@@ -45,3 +44,7 @@ def register(request):
     else:
         form = CustomerRegistrationForm()
     return render(request, 'app/user/register.html', {'form':form})
+
+
+def profile(request):
+    return render(request, 'app/user/profile.html')

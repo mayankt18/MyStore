@@ -7,8 +7,8 @@
 
 <div class="container col-lg-4 p-3 mt-1 border rounded">
 
- 
-
+    <h3 class="text-center"><b>Sign Up</b></h3>
+    <hr>
     <form action="" method="post" novalidate class="shadow p-5">
         {% if messages %}
             {% for msg in messages %}
@@ -28,12 +28,16 @@
             <input type="submit" value="Sign Up" class="btn btn-success">
         </div>
         <br>
-        <div class="text-center m-2 p-2">
-            <p>Existing User?</p>
-            <a href="{% url 'login' %}" class="btn btn-outline-success" role="button" aria-pressed="true">Login</a>
+        <div class="text-center text-primary fw-bold">
+            <small>
+                Existing User?<br>
+                <a href="{% url 'login' %}" class="text-danger">
+                    Login
+                </a>
+            </small>
         </div>
-        {% if form.non_field_error %}
-            {% for error in form.non_field_error %}
+        {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
                 <p class="alert alert-danger">{{error}}</p>
             {% endfor %}
         {% endif %}
