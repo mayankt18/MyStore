@@ -22,6 +22,8 @@ urlpatterns = [
     path('register/', views.register, name="register"),
     
     path('accounts/profile/', views.ProfileView.as_view(), name="profile"),
+
+    path('account/address/', views.addressview, name="address"),
     
     path('change-password/', auth_views.PasswordChangeView.as_view(template_name='app/user/changepassword.html',
     form_class=ChangePasswordForm, success_url='/password-changed/'), name="change-password"),
@@ -40,6 +42,22 @@ urlpatterns = [
 
     path('password-reset-complete/', auth_views.PasswordResetCompleteView.as_view
     (template_name='app/pwdrst/password_reset_complete.html'), name="password_reset_complete"),
+
+    path('add-to-cart/', views.add_to_cart, name="add_to_cart"),
+
+    path('cart/', views.cart, name="cart"),
+
+    path('pluscart/', views.plus_cart),
+
+    path('minuscart/', views.minus_cart),
+
+    path('removecart/', views.remove_cart),
+
+    path('checkout/', views.checkout, name="checkout"),
+
+    path('confirmation/', views.confirmation, name="confirmation"),
+
+    path('orders', views.orders, name="orders")
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

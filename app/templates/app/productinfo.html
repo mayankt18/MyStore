@@ -13,8 +13,18 @@
             <p><strong>Product Description:</strong> {{p.description}}</p> <br>
             <h4 style="color: green">Rs. {{p.discountedPrice}} <br><small class="fw-dark text-decoration-line-through"
                     style="color: red">Rs. {{p.price}}</small></h4> <br>
-            <a href="#" class="btn btn-primary shadow px-5 py-2">Add to Cart</a>
-            <a href="#" class="btn btn-danger shadow px-5 py-2 ms-4">Buy Now</a>
+        
+            {% if carted_item %}
+                <a href="{% url 'cart' %}" class="btn btn-warning shadow px-5 py-2">Go to Cart</a>
+            {% else %}
+            <form action="/add-to-cart" class="d-inline">
+                <input type="hidden" value="{{p.id}}" name="product_id" id="product_id">
+                <button type="submit" class="btn btn-primary shadow px-5 py-2">
+                    Add to Cart
+                </button>
+            </form>
+            {% endif %}
+            <a href="{% url 'checkout' %}" class="btn btn-danger shadow px-5 py-2 ms-4">Buy Now</a>
             <h5 class="mt-5">Available Offers</h5>
             <ul>
                 <li>Bank Offer 5% Unlimited Cashback on Flipkart Axis Bank Credit</li>

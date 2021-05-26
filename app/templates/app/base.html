@@ -58,15 +58,16 @@
               </a>
               <ul class="dropdown-menu" aria-labelledby="profileDropdown">
                 <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
-                <li><a class="dropdown-item" href="#">Orders</a></li>
+                <li><a class="dropdown-item" href="{% url 'orders' %}">Orders</a></li>
                 <li><a class="dropdown-item" href="{% url 'change-password' %}">Change Password</a></li>
                 <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
               </ul>
             </li>
-            <a href="" class="mx-2 mt-2">
+            <a href="{% url 'cart' %}" class="mx-2 mt-2">
 
               <button type="button" class="nav-item btn btn-outline-warning">
-                <i class="bi bi-cart-fill"></i> <span class="badge bg-danger">4</span>
+                <i class="bi bi-cart-fill"></i> 
+                <!-- <span class="badge bg-danger">4</span> -->
               </button>
             </a>
           {% else %}

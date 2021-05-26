@@ -3,16 +3,17 @@ from django.contrib.auth.models import User
 
 Category_choices = (
     ('M', 'Mobile'),
-    ('L','Laptop'),
+    ('L', 'Laptop'),
     ('BW', 'Bottom Wear'),
     ('TW', 'Top Wear')
 )
 
+
 class Product(models.Model):
     name = models.CharField(max_length=300)
     description = models.TextField()
-    price = models.DecimalField(max_digits=22,decimal_places=2)
-    discountedPrice = models.DecimalField(max_digits=22,decimal_places=2)
+    price = models.DecimalField(max_digits=22, decimal_places=2)
+    discountedPrice = models.FloatField()
     category = models.CharField(choices=Category_choices, max_length=3)
     brand = models.CharField(max_length=200)
     image = models.ImageField(upload_to='productimg')
@@ -24,28 +25,29 @@ class Product(models.Model):
 STATE_CHOICES = (
     ('ANDHRA PRADESH', 'ANDHRA PRADESH'),
     ('ARUNANCHAL PRADESH', 'ARUNANCHAL PRADESH'),
-    ('ASSAM','ASSAM'),
-    ('BIHAR','BIHAR'),
-    ('CHATTISGARH','CHATTISGARH'),
-    ('GOA','GOA'),
-    ('GUJRAT','GUJRAT'),
-    ('HARYANA','HARYANA'),
-    ('HIMANCHAL PRADESH','HIMANCHAL PRADESH'),
-    ('JHARKHAND','JHARKHAND'),
-    ('KARNATAKA','KARNATAKA'),
-    ('KERALA','KERALA'),
-    ('MADHYA PRADESH','MADHYA PRADESH'),
-    ('MAHARASTRA','MAHARASTRA'),
-    ('MANIPUR','MANIPUR'),
-    ('ODISHA','ODISHA'),
-    ('PUNJAB','PUNJAB'),
-    ('RAJASTHAN','RAJASTHAN'),
-    ('TAMIL NADU','TAMIL NADU'),
-    ('TELANGANA','TELANGANA'),
+    ('ASSAM', 'ASSAM'),
+    ('BIHAR', 'BIHAR'),
+    ('CHATTISGARH', 'CHATTISGARH'),
+    ('GOA', 'GOA'),
+    ('GUJRAT', 'GUJRAT'),
+    ('HARYANA', 'HARYANA'),
+    ('HIMANCHAL PRADESH', 'HIMANCHAL PRADESH'),
+    ('JHARKHAND', 'JHARKHAND'),
+    ('KARNATAKA', 'KARNATAKA'),
+    ('KERALA', 'KERALA'),
+    ('MADHYA PRADESH', 'MADHYA PRADESH'),
+    ('MAHARASTRA', 'MAHARASTRA'),
+    ('MANIPUR', 'MANIPUR'),
+    ('ODISHA', 'ODISHA'),
+    ('PUNJAB', 'PUNJAB'),
+    ('RAJASTHAN', 'RAJASTHAN'),
+    ('TAMIL NADU', 'TAMIL NADU'),
+    ('TELANGANA', 'TELANGANA'),
     ('UTTAR PRADESH', 'UTTAR PRADESH'),
     ('UTTARAKHAND', 'UTTARAKHAND'),
     ('WEST BENGAL', 'WEST BENGAL')
 )
+
 
 class Customer(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -53,7 +55,7 @@ class Customer(models.Model):
     locality = models.CharField(max_length=300)
     city = models.CharField(max_length=100)
     zipcode = models.CharField(max_length=6)
-    state = models.CharField(choices=STATE_CHOICES,max_length=50)
+    state = models.CharField(choices=STATE_CHOICES, max_length=50)
 
     def __str__(self):
         return str(self.id)
@@ -73,15 +75,20 @@ class Cart(models.Model):
     class Meta:
         verbose_name_plural = "cart"
 
+    @property
+    def total_cost(self):
+        return self.quantity * self.product.discountedPrice
+
 
 STATUS_CHOICES = (
-    ('PENDING','PENDING'),
-    ('ACCEPTED','ACCEPTED'),
-    ('PACKED','PACKED'),
-    ('SHIPPED','SHIPPED'),
-    ('ON THE WAY','ON THE WAY'),
-    ('DELIVERED','DELIVERED')
+    ('PENDING', 'PENDING'),
+    ('ACCEPTED', 'ACCEPTED'),
+    ('PACKED', 'PACKED'),
+    ('SHIPPED', 'SHIPPED'),
+    ('ON THE WAY', 'ON THE WAY'),
+    ('DELIVERED', 'DELIVERED')
 )
+
 
 class Confirmation(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -89,10 +96,12 @@ class Confirmation(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(default=0)
     order_date = models.DateTimeField(auto_now_add=True)
-    order_status = models.CharField(choices=STATUS_CHOICES, max_length=50, default='PENDING')
+    order_status = models.CharField(
+        choices=STATUS_CHOICES, max_length=50, default='PENDING')
 
     class Meta:
         verbose_name_plural = "confirmation"
 
-
-
+    @property
+    def total_cost(self):
+        return self.quantity * self.product.discountedPrice
