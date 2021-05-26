@@ -6,7 +6,6 @@
 
 <div class="row">
     <div class="col-lg-2">
-        <!-- <div class="container"> -->
 
         <div class="list-group p-3">
             <li class="list-group-item active" aria-current="true">Categories</li>
@@ -17,7 +16,6 @@
             <a href="{%url 'filter-products' 'BW'%}" class="list-group-item list-group-item-action">Bottom Wear</a>
 
         </div>
-        <!-- </div> -->
     </div>
     <div id='products' class="col-lg-9 mx-auto">
         <div class="row mx-auto">
@@ -29,8 +27,8 @@
                 <div class="card-body m-0 p-0" style="text-align: center;">
                     <h3 class="card-title"><b>{{product.name}}</b></h3>
                     <h4 class="card-text" style="color:green">Rs.{{product.discountedPrice}}</h4>
-                    <h5 class="card-text" style="text-decoration:line-through; color:red">Rs.{{product.price}}
-                    </h5>
+                    <p class="card-text" style="text-decoration:line-through; color:red">Rs.{{product.price}}
+                    </p>
                 </div>
             </div>
             {% endfor %}

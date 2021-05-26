@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from . models import *
 from .forms import *
 from django.contrib import messages
+from django.views import View
 
 
 def homepage(request):
@@ -46,5 +47,21 @@ def register(request):
     return render(request, 'app/user/register.html', {'form':form})
 
 
-def profile(request):
-    return render(request, 'app/user/profile.html')
+class ProfileView(View):
+    def get(self, request):
+        form = CustomerProfileForm()
+        return render(request, 'app/user/profile.html', {'form':form,'active':'btn-warning'})
+
+    def post(self, request):
+        form = CustomerProfileForm(request.POST)
+        if form.is_valid():
+            usr = request.user
+            name = form.cleaned_data['name']
+            locality = form.cleaned_data['locality']
+            city = form.cleaned_data['city']
+            zipcode = form.cleaned_data['zipcode']
+            state = form.cleaned_data['state']
+            reg = Customer(user= usr, locality=locality,city=city, state=state, zipcode=zipcode)
+            reg.save()
+            messages.success(request, 'Congratulations!! Profile updated Successfully!!!')
+        return render(request, 'app/user/profile.html', {'form':form, 'active':'btn-warning'})
