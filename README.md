@@ -1,67 +1,67 @@
 # MyStore
-
 ---
 
-## Django E-commerce
+## Django-Ecommerce
 
-This is a very simple e-commerce website built with Django.
+Ecommerce website built with Django 2.2.3, Python 3.7.3, and AWS
 
-## Quick demo
+![image](https://user-images.githubusercontent.com/29988949/65267147-499fc580-dac9-11e9-90e8-eccbc93c7c3a.png)
 
-[![alt text](https://drive.google.com/file/d/1VucQapmHT9dXTnqgxiAyek0kKHIz_wBm/view?usp=sharing)
+`Product Slide`
 
----
+![image](https://user-images.githubusercontent.com/29988949/65999313-ff67fe00-e451-11e9-9ed9-fc7bce704f17.png)
 
-## Project Summary
+`Shop Page`
+![image](https://user-images.githubusercontent.com/29988949/66098968-923f9000-e559-11e9-8691-cd5c2b181ca1.png)
 
-The website displays products. Users can add and remove products to/from their cart while also specifying the quantity of each item. They can then enter their address and choose Stripe to handle the payment processing.
+`Product Detail Page`
+![image](https://user-images.githubusercontent.com/29988949/66291084-bff84200-e895-11e9-8d53-3aa23b29dbae.png)
 
-<p>
-<img src="https://drive.google.com/thumbnail?id=1VucQapmHT9dXTnqgxiAyek0kKHIz_wBm" width="200px" height="200px"><p>   </p>  
-<img src="https://drive.google.com/thumbnail?id=1Xl8dQMWuxPx4YVFqzZRwPh-5Ejxzf-XL" width="200px" height="200px">    
-</p>
----
+`Cart Page`
+![image](https://user-images.githubusercontent.com/29988949/66291144-f0d87700-e895-11e9-8545-b8f93f799063.png)
 
-## Running this project
+`BillingAddress Page`
+![image](https://user-images.githubusercontent.com/29988949/66291542-013d2180-e897-11e9-8ea9-40afcb90cee2.png)
 
-To get this project up and running you should start by having Python installed on your computer. It's advised you create a virtual environment to store your projects dependencies separately. You can install virtualenv with
+`Stripe Payment Page`
+![image](https://user-images.githubusercontent.com/29988949/66291610-29c51b80-e897-11e9-8b47-20de35d6c1d0.png)
 
+`Order Success Page`
+![image](https://user-images.githubusercontent.com/29988949/66291657-3e091880-e897-11e9-830b-6cf44e72a995.png)
+
+# Installation
+
+`pip install django`
+
+`virtualenv env`
+
+# For Mac/ Linux
+
+`source env/bin/activate`
+
+# For Window
+
+`env\scripts\activate`
+
+`pip install -r requirements.txt`
+
+`python manage.py makemigrations`
+
+`python manage.py migrate`
+
+`python manage.py runserver`
+
+# For Admin Login
+
+```python
+python manage.py createsuperuser
+Username : admin
+Password : 12345678
 ```
-pip install virtualenv
-```
+# Demo
 
-Clone or download this repository and open it in your editor of choice. In a terminal (mac/linux) or windows terminal, run the following command in the base directory of this project
+http://djangoecommerce.pythonanywhere.com
 
-```
-virtualenv env
-```
+# HTML Template
 
-That will create a new folder `env` in your project directory. Next activate it with this command on mac/linux:
-
-```
-source env/bin/active
-```
-
-Then install the project dependencies with
-
-```
-pip install -r requirements.txt
-```
-
-Now you can run the project with this command
-
-```
-python manage.py runserver
-```
-
-**Note** if you want payments to work you will need to enter your own Stripe API keys into the `.env` file in the settings files.
-
----
-<div align="center">
-
-<i>Other places you can find us:</i><br>
-
-<a href="https://www.youtube.com/channel/UCRM1gWNTDx0SHIqUJygD-kQ" target="_blank"><img src="https://img.shields.io/badge/YouTube-%23E4405F.svg?&style=flat-square&logo=youtube&logoColor=white" alt="YouTube"></a>
-<a href="https://www.twitter.com/justdjangocode" target="_blank"><img src="https://img.shields.io/badge/Twitter-%231877F2.svg?&style=flat-square&logo=twitter&logoColor=white" alt="Twitter"></a>
-
-</div>
+https://colorlib.com/etc/fashe/index.html
