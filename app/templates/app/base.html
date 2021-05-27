@@ -44,8 +44,8 @@
             <a class="nav-link active" aria-current="page" href="{%url 'homepage'%}">Home</a>
           </li>
         </ul>
-        <form class="d-flex">
-          <input class="form-control me-1" type="search" placeholder="Search" aria-label="Search">
+        <form class="d-flex" action="{% url 'searchbar' %}">
+          <input class="form-control me-1" type="search" name="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-warning me-3" type="submit"><i class="bi bi-search"></i></button>
         </form>
         <div>
@@ -67,7 +67,8 @@
 
               <button type="button" class="nav-item btn btn-outline-warning">
                 <i class="bi bi-cart-fill"></i> 
-                <!-- <span class="badge bg-danger">4</span> -->
+                <!-- <span class="badge bg-danger"><b>.</b></span> -->
+                <!-- <span class="sr-only">(current)</span> -->
               </button>
             </a>
           {% else %}
@@ -106,7 +107,7 @@
     <!-- Copyright -->
     <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
       © 2021 Copyright:
-      <a class="text-dark" href="https://google.com/">MyStore.com</a>
+      <a class="text-dark" href="{% url 'homepage' %}">MyStore.com</a>
     </div>
     <!-- Copyright -->
   </footer>

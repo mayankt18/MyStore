@@ -22,9 +22,7 @@
             {% for product in product %}
             <div class="card card-hover mx-auto mb-5" id={{product.id}} style="width: 18rem;">
                 <a href="{% url 'product-detail' product.id%}">
-                    
-                        <img class="card-img-top" src="{{product.image.url}}" alt="Card image cap" style="height:18rem;">
-                    
+                    <img class="card-img-top" src="{{product.image.url}}" alt="Card image cap" style="height:18rem;">
                 </a>
                 <div class="card-body m-0 p-0" style="text-align: center;">
                     <h3 class="card-title"><b>{{product.name}}</b></h3>

@@ -24,8 +24,10 @@ def homepage(request):
 
 def product_detail(request, id):
     product = Product.objects.get(id=id)
+    user = request.user
     carted_item = False
-    carted_item = Cart.objects.filter(Q(product=product.id) & Q(user=request.user)).exists()
+    if user.is_authenticated:
+        carted_item = Cart.objects.filter(Q(product=product.id) & Q(user=request.user)).exists()
     return render(request, 'app/productinfo.html', {'p':product, 'carted_item':carted_item})
 
 
@@ -35,6 +37,12 @@ def products(request, tag=None):
     else:
         product = Product.objects.filter(category=tag)
     return render(request, 'app/product.html', {'product':product})
+
+def searchbar(request):
+    if request.method=="GET":
+        search = request.GET.get("search")
+        product = Product.objects.filter(Q(name__icontains=search))
+        return render(request, 'app/searchbar.html', {'product':product})
 
 
 def login(request):
@@ -84,7 +92,7 @@ def add_to_cart(request):
     product_id = request.GET.get('product_id')
     product = Product.objects.get(id=product_id)
     Cart(user=user, product=product).save()
-    return redirect('/cart')
+    return redirect('product-detail', id=product_id)
 
 
 @login_required

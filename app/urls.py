@@ -11,6 +11,8 @@ urlpatterns = [
     path('product-detail/<int:id>', views.product_detail, name="product-detail"),
     
     path('products', views.products, name="products"),
+
+    path('search/', views.searchbar, name="searchbar"),
     
     path('products/<slug:tag>', views.products, name="filter-products"),
     
