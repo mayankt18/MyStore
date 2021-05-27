@@ -5,29 +5,39 @@
 
 Ecommerce website built with Django 3.2.2 and Python 3.8.6
 
-![image](https://user-images.githubusercontent.com/29988949/65267147-499fc580-dac9-11e9-90e8-eccbc93c7c3a.png)
+`Register`
+![image](https://github.com/mayankt18/MyStore/blob/main/screenshots/register.png)
+![image](https://github.com/mayankt18/MyStore/blob/main/screenshots/register2.png)
 
-`Product Slide`
+`Login`
+![image](https://github.com/mayankt18/MyStore/blob/main/screenshots/login.png)
 
-![image](https://user-images.githubusercontent.com/29988949/65999313-ff67fe00-e451-11e9-9ed9-fc7bce704f17.png)
 
-`Shop Page`
-![image](https://user-images.githubusercontent.com/29988949/66098968-923f9000-e559-11e9-8691-cd5c2b181ca1.png)
+`Homepage`
 
-`Product Detail Page`
-![image](https://user-images.githubusercontent.com/29988949/66291084-bff84200-e895-11e9-8d53-3aa23b29dbae.png)
+![image](https://github.com/mayankt18/MyStore/blob/main/screenshots/homepage.png)
+![image](https://github.com/mayankt18/MyStore/blob/main/screenshots/homepage2.png)
+![image](https://github.com/mayankt18/MyStore/blob/main/screenshots/homepage3.png)
 
-`Cart Page`
+`Offers`
+![image](https://github.com/mayankt18/MyStore/blob/main/screenshots/offers.png)
+
+`Product-Details`
+![image](https://github.com/mayankt18/MyStore/blob/main/screenshots/details.png)
+![image](https://github.com/mayankt18/MyStore/blob/main/screenshots/details2.png)
+
+`Cart`
 ![image](https://github.com/mayankt18/MyStore/blob/main/screenshots/cart.png)
 
-`BillingAddress Page`
-![image](https://user-images.githubusercontent.com/29988949/66291542-013d2180-e897-11e9-8ea9-40afcb90cee2.png)
 
-`Stripe Payment Page`
-![image](https://user-images.githubusercontent.com/29988949/66291610-29c51b80-e897-11e9-8b47-20de35d6c1d0.png)
+`Checkout`
+![image](https://github.com/mayankt18/MyStore/blob/main/screenshots/checkout.png)
+![image](https://github.com/mayankt18/MyStore/blob/main/screenshots/checkout2.png)
 
-`Order Success Page`
-![image](https://user-images.githubusercontent.com/29988949/66291657-3e091880-e897-11e9-830b-6cf44e72a995.png)
+`Order-Summary`
+![image](https://github.com/mayankt18/MyStore/blob/main/screenshots/ordersummary.png)
+
+
 
 # Installation
 
