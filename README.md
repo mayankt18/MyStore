@@ -15,10 +15,9 @@ This is a very simple e-commerce website built with Django.
 ## Project Summary
 
 The website displays products. Users can add and remove products to/from their cart while also specifying the quantity of each item. They can then enter their address and choose Stripe to handle the payment processing.
-<p>
-<img src="https://drive.google.com/thumbnail?id=1VucQapmHT9dXTnqgxiAyek0kKHIz_wBm" width="300px" height="300px" style="margin:100px">  <img src="https://drive.google.com/thumbnail?id=1Xl8dQMWuxPx4YVFqzZRwPh-5Ejxzf-XL" width="300px" height="300px">    
 
-</p>
+<img src="https://drive.google.com/thumbnail?id=1VucQapmHT9dXTnqgxiAyek0kKHIz_wBm" width="200px" height="200px">  
+<img src="https://drive.google.com/thumbnail?id=1Xl8dQMWuxPx4YVFqzZRwPh-5Ejxzf-XL" width="200px" height="200px">    
 ---
 
 ## Running this project
