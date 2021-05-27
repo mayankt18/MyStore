@@ -18,7 +18,7 @@ Ecommerce website built with Django 3.2.2 and Python 3.8.6
 ![image](https://user-images.githubusercontent.com/29988949/66291084-bff84200-e895-11e9-8d53-3aa23b29dbae.png)
 
 `Cart Page`
-![image](https://user-images.githubusercontent.com/29988949/66291144-f0d87700-e895-11e9-8545-b8f93f799063.png)
+![image](https://github.com/mayankt18/MyStore/blob/main/screenshots/cart.png)
 
 `BillingAddress Page`
 ![image](https://user-images.githubusercontent.com/29988949/66291542-013d2180-e897-11e9-8ea9-40afcb90cee2.png)
