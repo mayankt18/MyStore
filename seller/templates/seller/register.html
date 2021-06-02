@@ -1,0 +1,35 @@
+{% extends 'seller/core/base.html' %}
+
+{% block title %}Registration{% endblock %}
+
+{% block content %}
+<div class="container mx-auto col-sm-6">
+  <div class="column is-half is-offset-3 shadow-2xl p-5">
+
+    <form action="" method="post" novalidate>
+      <h1 class="title is-1 font-mono mx-6">Registration page</h1>
+      {% if messages %}
+      {% for msg in messages %}
+      <p {% if msg.tags %} class="alert alert-{{msg.tags}}" {% endif %}>{{msg}}</p>
+      {% endfor %}
+      {% endif %}
+      {%csrf_token%}
+      {% for fm in form %}
+      <div class="field">
+        <label class="label">{{fm.label_tag}}</label>
+        <div class="control">
+          {{fm}}
+        </div>
+        <small class="text-red-600">{{fm.errors|striptags}}</small>
+      </div>
+      {% endfor %}
+      <input type="submit" value="Sign Up" class="button is-primary">
+      {% if form.non_field_errors %}
+        {% for error in form.non_field_errors %}
+          <p class="alert alert-danger">{{error}}</p>
+        {% endfor %}
+      {% endif %}
+    </form>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'seller/core/base.html' %}
+
+{% block title %}MyListings{% endblock %}
+
+{% block content %}
+    {% for p in products %}
+    <div class="card mb-2">
+        <div class="card-body hover:bg-yellow-100">
+            <div class="row">
+                <h5>{{forloop.counter}}</h5>
+                <div class="col-sm-3 text-center align-self-center">
+                    {% if p.image %}
+                    <a href="{% url 'app:product-detail' p.id %}"><img src="{{p.image.url}}" alt=""
+                        srcset="" class="img-fluid img-thumbnail shadow-sm" height="150" width="150"></a>
+                    {% endif %}
+                </div>
+                <div class="col-sm-9">
+                    
+                    <h5>Product: {{p.name}}</h5>
+                    <p class="fw-bold">Price: Rs.{{p.price}}</p>
+                    <p class="fw-bold">Discounted Price: Rs. {{p.discountedPrice}}</p>
+                    <!-- <p>Quantity: {{p.quantity}}</p>
+                    <p>Status: {{p.order_status}}</p> -->
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    {% endfor %}
+{% endblock %}

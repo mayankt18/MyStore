@@ -7,34 +7,38 @@
         <h3>Welcome {{request.user.username|capfirst}}</h3>
         <div class="col-sm-3 border-end">
             <ul class="list-unstyled">
-                <li class="d-grid"><a href="{% url 'orders' %}" class="btn btn-warning">Orders</a></li>
+                <li class="d-grid"><a href="{% url 'app:orders' %}" class="btn btn-warning">Orders</a></li>
             </ul>
         </div>
-        <div class="container col-sm-9">
-            
-            {% for p in op %}
-            <div>
+        <div class="row col-sm-8 mx-auto">
+
+            <div class="container col-sm-9">
                 
-                <div class="card mb-2">
-                    <div class="card-body">
-                        <div class="row">
-                            
-                            <div class="col-sm-3 text-center align-self-center"> <img src="{{p.product.image.url}}" alt=""
-                                srcset="" class="img-fluid img-thumbnail shadow-sm" height="150" width="150">
-                            </div>
-                            <div class="col-sm-9">
+                {% for p in op %}
+                <div>
+                    
+                    <div class="card mb-2">
+                        <div class="card-body hover:bg-yellow-100">
+                            <div class="row">
                                 
-                                <h5>Product: {{p.product.name}}</h5>
-                                <p>Quantity: {{p.quantity}}</p>
-                                <p class="fw-bold">Price: Rs.{{p.total_cost}}</p>
-                                <p>Status: {{p.order_status}}</p>
+                                <div class="col-sm-3 text-center align-self-center">
+                                    <a href="{% url 'app:product-detail' p.product.id %}"><img src="{{p.product.image.url}}" alt=""
+                                        srcset="" class="img-fluid img-thumbnail shadow-sm" height="150" width="150"></a>
+                                </div>
+                                <div class="col-sm-9">
+                                    
+                                    <h5>Product: {{p.product.name}}</h5>
+                                    <p>Quantity: {{p.quantity}}</p>
+                                    <p class="fw-bold">Price: Rs.{{p.total_cost}}</p>
+                                    <p>Status: {{p.order_status}}</p>
+                                </div>
                             </div>
+                            
                         </div>
-                        
                     </div>
                 </div>
+                {% endfor %}
             </div>
-            {% endfor %}
         </div>
     </div>
 </div>

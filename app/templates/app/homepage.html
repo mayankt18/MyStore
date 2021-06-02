@@ -41,7 +41,7 @@
     <p class="lead my-3">Get flat 90% discount on products starting with Rs. 999,
       and flat 50% discount on products starting with Rs. 499. So, what are you waiting for. <strong>Hurry
         Up!!!</strong></p>
-    <p class="lead mb-0"><a href="{%url 'products'%}" class="text-dark fw-bold btn btn-warning">View Products</a></p>
+    <p class="lead mb-0"><a href="{%url 'app:products'%}" class="text-dark fw-bold btn btn-warning">View Products</a></p>
   </div>
 </div>
 <!-- SALE ENDS -->
@@ -55,7 +55,7 @@
     <h2>MyStore | Mobiles</h2>
     <div class="owl-carousel">
       {% for c in Mobiles %}
-      <div class="item"><a href="{% url 'product-detail' c.id %}"><img src="{{ c.image.url }}" alt=""
+      <div class="item"><a href="{% url 'app:product-detail' c.id %}"><img src="{{ c.image.url }}" alt=""
         height="300px"></a></a><span class="fw-bold">{{c.name}}</span><br><span class="fs-5">Rs.{{c.discountedPrice}}</span>
   </div>
     {% endfor %}
@@ -70,7 +70,7 @@
     <h2>MyStore | Laptops</h2>
     <div class="owl-carousel">
       {% for c in Laptops %}
-      <div class="item"><a href="{% url 'product-detail' c.id %}"><img src="{{ c.image.url }}" alt=""
+      <div class="item"><a href="{% url 'app:product-detail' c.id %}"><img src="{{ c.image.url }}" alt=""
         height="300px"></a></a><span class="fw-bold">{{c.name}}</span><br><span class="fs-5">Rs.{{c.discountedPrice}}</span>
   </div>
       {% endfor %}
@@ -85,7 +85,7 @@
     <h2>MyStore | Topwear</h2>
     <div class="owl-carousel">
       {% for c in Topwear %}
-      <div class="item"><a href="{% url 'product-detail' c.id %}"><img src="{{ c.image.url }}" alt=""
+      <div class="item"><a href="{% url 'app:product-detail' c.id %}"><img src="{{ c.image.url }}" alt=""
         height="300px"></a></a><span class="fw-bold">{{c.name}}</span><br><span class="fs-5">Rs.{{c.discountedPrice}}</span>
   </div>
       {% endfor %}
@@ -100,7 +100,7 @@
     <h2>MyStore | Bottomwear</h2>
     <div class="owl-carousel">
       {% for c in Bottomwear %}
-      <div class="item"><a href="{% url 'product-detail' c.id %}"><img src="{{ c.image.url }}" alt=""
+      <div class="item"><a href="{% url 'app:product-detail' c.id %}"><img src="{{ c.image.url }}" alt=""
         height="300px"></a></a><span class="fw-bold">{{c.name}}</span><br><span class="fs-5">Rs.{{c.discountedPrice}}</span>
   </div>
       {% endfor %}

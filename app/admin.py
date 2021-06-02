@@ -18,4 +18,3 @@ class CartAdmin(admin.ModelAdmin):
 @admin.register(Confirmation)
 class ConfirmationAdmin(admin.ModelAdmin):
     list_display = ['id','user','customer','product','order_date','order_status']
-

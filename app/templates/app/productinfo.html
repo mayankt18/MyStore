@@ -15,8 +15,8 @@
                     style="color: red">Rs. {{p.price}}</small></h4> <br>
             {% if request.user.is_authenticated %}
                 {% if carted_item %}
-                    <a href="{% url 'cart' %}" class="btn btn-warning shadow px-5 py-2">Go to Cart</a>
-                    <a href="{% url 'checkout' %}" class="btn btn-danger shadow px-5 py-2 ms-4">Buy Now</a>
+                    <a href="{% url 'app:cart' %}" class="btn btn-warning shadow px-5 py-2">Go to Cart</a>
+                    <a href="{% url 'app:checkout' %}" class="btn btn-danger shadow px-5 py-2 ms-4">Buy Now</a>
                 {% else %}
                 <form action="/add-to-cart" class="d-inline">
                     <input type="hidden" value="{{p.id}}" name="product_id" id="product_id">
@@ -24,10 +24,10 @@
                         Add to Cart
                     </button>
                 </form>
-                <a href="{% url 'checkout' %}" class="btn btn-danger shadow px-5 py-2 ms-4">Buy Now</a>
+                <a href="{% url 'app:checkout' %}" class="btn btn-danger shadow px-5 py-2 ms-4">Buy Now</a>
                 {% endif %}
             {% else %}
-                <a href="{% url 'login' %}" class="btn btn-success shadow px-5 py-2">login</a>
+                <a href="{% url 'app:login' %}" class="btn btn-success shadow px-5 py-2">login</a>
             {% endif %}
             
             <h5 class="mt-5">Available Offers</h5>

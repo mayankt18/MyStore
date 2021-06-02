@@ -26,6 +26,10 @@
   <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
   <!-- Bootstrap icons ends -->
+
+  <!-- tailwindCss -->
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -33,19 +37,20 @@
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="{% url 'homepage' %}"><strong>MyStore</strong></a>
+      <a class="navbar-brand" href="{% url 'app:homepage' %}"><strong>MyStore</strong></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav me-auto">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{%url 'homepage'%}">Home</a>
+            <a class="nav-link active" aria-current="page" href="{%url 'app:homepage'%}">Home</a>
           </li>
         </ul>
-        <form class="d-flex" action="{% url 'searchbar' %}">
-          <input class="form-control me-1" type="search" name="search" placeholder="Search" aria-label="Search">
+        <form class="d-flex justify-content-center" action="{% url 'app:searchbar' %}">
+          <input class="form-control me-1 focus:ring-2 focus:ring-yellow-500" type="search" name="search" 
+          placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-warning me-3" type="submit"><i class="bi bi-search"></i></button>
         </form>
         <div>
@@ -57,34 +62,42 @@
                 <button class="btn btn-outline-warning">{{request.user.username|capfirst}}</button>
               </a>
               <ul class="dropdown-menu" aria-labelledby="profileDropdown">
-                <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
-                <li><a class="dropdown-item" href="{% url 'orders' %}">Orders</a></li>
-                <li><a class="dropdown-item" href="{% url 'change-password' %}">Change Password</a></li>
-                <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+                <li><a class="dropdown-item" href="{% url 'app:profile' %}">Profile</a></li>
+                <li><a class="dropdown-item" href="{% url 'app:orders' %}">Orders</a></li>
+                <li><a class="dropdown-item" href="{% url 'app:change-password' %}">Change Password</a></li>
+                <li><a class="dropdown-item" href="{% url 'app:logout' %}">Logout</a></li>
               </ul>
             </li>
-            <a href="{% url 'cart' %}" class="mx-2 mt-2">
+            <a href="{% url 'app:cart' %}" class="mx-2 mt-2">
 
               <button type="button" class="nav-item btn btn-outline-warning">
-                <i class="bi bi-cart-fill"></i> 
+                <i class="bi bi-cart-fill"></i>
                 <!-- <span class="badge bg-danger"><b>.</b></span> -->
                 <!-- <span class="sr-only">(current)</span> -->
               </button>
             </a>
+            <a href="{% url 'seller:seller' %}" class="mx-2 mt-2 navbar-begin">
+              <button class="nav-item btn btn-outline-warning">
+                Sell on MyStore
+              </button>
+            </a>
           {% else %}
-              <a href="{% url 'login' %}" class="mx-2 mt-2">
+              <a href="{% url 'app:login' %}" class="mx-2 mt-2">
                 <button class="nav-item btn btn-outline-warning">
                   Login
                 </button>
               </a>
-            
-            
-              <a href="{% url 'register' %}" class="mx-2 mt-2">
+
+
+              <a href="{% url 'app:register' %}" class="mx-2 mt-2">
                 <button class="nav-item btn btn-outline-warning">
                   Register
                 </button>
               </a>
-            
+
+              
+              
+
           {% endif %}
           </ul>
         </div>
@@ -107,7 +120,7 @@
     <!-- Copyright -->
     <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
       © 2021 Copyright:
-      <a class="text-dark" href="{% url 'homepage' %}">MyStore.com</a>
+      <a class="text-dark" href="{% url 'app:homepage' %}">MyStore.com</a>
     </div>
     <!-- Copyright -->
   </footer>

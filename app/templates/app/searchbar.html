@@ -9,11 +9,11 @@
 
         <div class="list-group p-3">
             <li class="list-group-item active" aria-current="true">Categories</li>
-            <a href="{%url 'products'%}" class="list-group-item list-group-item-action">All</a>
-            <a href="{%url 'filter-products' 'M'%}" class="list-group-item list-group-item-action">Mobiles</a>
-            <a href="{%url 'filter-products' 'L'%}" class="list-group-item list-group-item-action">Laptops</a>
-            <a href="{%url 'filter-products' 'TW'%}" class="list-group-item list-group-item-action">Top Wear</a>
-            <a href="{%url 'filter-products' 'BW'%}" class="list-group-item list-group-item-action">Bottom Wear</a>
+            <a href="{%url 'app:products'%}" class="list-group-item list-group-item-action">All</a>
+            <a href="{%url 'app:filter-products' 'M'%}" class="list-group-item list-group-item-action">Mobiles</a>
+            <a href="{%url 'app:filter-products' 'L'%}" class="list-group-item list-group-item-action">Laptops</a>
+            <a href="{%url 'app:filter-products' 'TW'%}" class="list-group-item list-group-item-action">Top Wear</a>
+            <a href="{%url 'app:filter-products' 'BW'%}" class="list-group-item list-group-item-action">Bottom Wear</a>
 
         </div>
     </div>
@@ -21,7 +21,7 @@
         <div class="row mx-auto">
             {% for product in product %}
             <div class="card card-hover mx-auto mb-5" id={{product.id}} style="width: 18rem;">
-                <a href="{% url 'product-detail' product.id%}">
+                <a href="{% url 'app:product-detail' product.id%}">
                     <img class="card-img-top" src="{{product.image.url}}" alt="Card image cap" style="height:18rem;">
                 </a>
                 <div class="card-body m-0 p-0" style="text-align: center;">

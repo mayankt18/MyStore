@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, JsonResponse
-from . models import *
+from . models import Product, Customer, Confirmation, Cart
 from .forms import *
 from django.contrib import messages
 from django.views import View
@@ -92,7 +92,7 @@ def add_to_cart(request):
     product_id = request.GET.get('product_id')
     product = Product.objects.get(id=product_id)
     Cart(user=user, product=product).save()
-    return redirect('product-detail', id=product_id)
+    return redirect('app:product-detail', id=product_id)
 
 
 @login_required
@@ -184,20 +184,23 @@ def remove_cart(request):
 def checkout(request):
     user = request.user
     add = Customer.objects.filter(user=user)
-    cart_item = Cart.objects.filter(user=user)
-    amount = 0.0
-    shipping_price = 40.00
-    total_amount = 0.0
-    cart_product = [p for p in Cart.objects.all() if p.user == request.user]
-    if cart_product:
-        for p in cart_product:
-            tempamount = p.quantity * p.product.discountedPrice
-            amount = amount + tempamount
-        data={'amount':amount,
-            'shipping': shipping_price,
-            'totalamount': amount + shipping_price
-        }
-    return render(request, 'app/cart/checkout.html', {'add':add, 'data':data, 'cart_items':cart_item})
+    if add:
+        cart_item = Cart.objects.filter(user=user)
+        amount = 0.0
+        shipping_price = 40.00
+        total_amount = 0.0
+        cart_product = [p for p in Cart.objects.all() if p.user == request.user]
+        if cart_product:
+            for p in cart_product:
+                tempamount = p.quantity * p.product.discountedPrice
+                amount = amount + tempamount
+            data={'amount':amount,
+                'shipping': shipping_price,
+                'totalamount': amount + shipping_price
+            }
+        return render(request, 'app/cart/checkout.html', {'add':add, 'data':data, 'cart_items':cart_item})
+    else:
+        return redirect('app:profile')
 
 
 @login_required
@@ -207,10 +210,11 @@ def confirmation(request):
     customer = Customer.objects.get(id=custid)
     cart = Cart.objects.filter(user=user)
     for c in cart:
-        Confirmation(user=user, customer=customer, product=c.product, quantity=c.quantity).save()
+        Confirmation(user=user, customer=customer, product=c.product, quantity=c.quantity, 
+        seller_id=c.product.seller).save()
         c.delete()
 
-    return redirect("orders")
+    return redirect("app:orders")
 
 
 @login_required
