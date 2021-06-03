@@ -3,6 +3,8 @@
 
 ## Django-Ecommerce
 
+[![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com)
+
 Ecommerce website built with Django 3.2.2 and Python 3.8.6
 
 `Register`
