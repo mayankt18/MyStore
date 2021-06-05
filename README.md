@@ -38,29 +38,39 @@ Ecommerce website built with Django 3.2.2 and Python 3.8.6
 `Order-Summary`
 ![image](https://github.com/mayankt18/MyStore/blob/main/screenshots/ordersummary.png)
 
+# Requirements
 
+- you must have python 3.8.6 or higher
+
+# Cloning project
+
+ ## To clone the project
+
+`git clone https://github.com/mayankt18/MyStore.git`
 
 # Installation
 
-`pip install django`
+## Creating virtual environment
 
 `virtualenv env`
 
-# For Mac/ Linux
+ ### Activating virtual environment
 
-`source env/bin/activate`
+  `source env/bin/activate` (for linux and mac users)
 
-# For Window
+  `env\script\activate` (for windows users)
 
-`env\scripts\activate`
+ ### Installing requirements
 
-`pip install -r requirements.txt`
+  `pip install -r requirements.txt`
 
-`python manage.py makemigrations`
+# To run server
 
-`python manage.py migrate`
+ `python manage.py makemigrations`
 
-`python manage.py runserver`
+ `python manage.py migrate`
+
+ `python manage.py runserver`
 
 # For Admin Login
 
