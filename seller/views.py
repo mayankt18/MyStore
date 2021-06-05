@@ -6,7 +6,7 @@ from . forms import ItemAdditionForm,SellerAdditionForm
 
 def seller(request):
     user = request.user
-    return render(request, 'seller/core/Bell/index.html')
+    return render(request, 'seller/core/index.html')
 
 
 def listings(request):

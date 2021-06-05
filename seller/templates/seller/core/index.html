@@ -1,0 +1,12 @@
+{% extends 'seller/core/base.html' %}
+{% load static %}
+
+{% block title %}Welcome{% endblock %}
+
+{% block content %}
+    <h3 align="center" class="title is-primary">Welcome to Sell with MyStore</h3>
+    <div class="container mx-auto">
+        <img src="{% static 'images/seller/image.jpg' %}" alt="..." style="height: 550px; width: 600px;"
+        class="mx-auto">
+    </div>
+{% endblock %}
