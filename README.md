@@ -66,7 +66,7 @@ Ecommerce website built with Django 3.2.2 and Python 3.8.6
 
 # To run server
 
- Open the MyStore folder and then type the following commands in your terminal or command prompt
+ Open the terminal or command prompt in the MyStore folder and type
 
  `python manage.py makemigrations`
 
