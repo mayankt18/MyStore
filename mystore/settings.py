@@ -27,7 +27,10 @@ SECRET_KEY = 'django-insecure-9vd_a2!f$v4%)iij%jdnb-j0yifq^6evf$9o-+bn@)6mhr9mr=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'quiet-garden-86602.herokuapp.com',
+    '127.0.0.1'
+]
 
 
 # Application definition
