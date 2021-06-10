@@ -28,7 +28,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'mystore-476.herokuapp.com/',
+    'mystore-476.herokuapp.com' ,
     'localhost'
 ]
 
