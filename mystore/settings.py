@@ -22,14 +22,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ['SECRET_KEY']
+SECRET_KEY = 'django-insecure-9vd_a2!f$v4%)iij%jdnb-j0yifq^6evf$9o-+bn@)6mhr9mr='
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = [
     'mystore-476.herokuapp.com' ,
-    'localhost'
+    '*'
 ]
 
 
@@ -90,6 +90,7 @@ DATABASES = {
 }
 
 
+# postgres://zyjerztppimivp:774ce91e37557f5f97a80a2f2e2c0e7187b03713e437ab4a986a2c29cc1b7bf3@ec2-3-89-0-52.compute-1.amazonaws.com:5432/d7ddmq6ip7t466
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
@@ -145,6 +146,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 LOGIN_REDIRECT_URL = '/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
-
-
