@@ -221,3 +221,14 @@ def confirmation(request):
 def orders(request):
     op = Confirmation.objects.filter(user=request.user)
     return render(request, 'app/cart/orders.html', {'op':op})
+
+
+
+# categories = Category.objects.all()
+# all_products = []
+#     for category in categories:
+#         products = Product.objects.filter(category=category)
+#         all_products.append({'products': products, 'category':category])
+#     context = {
+#        'all_products': all_products,
+#     }

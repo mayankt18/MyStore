@@ -43,7 +43,7 @@ def add_seller_profile(request):
     if request.method=='POST':
         form = SellerAdditionForm(request.POST)
         if form.is_valid():
-            user = request.user.id
+            user = request.user
             brand = request.POST.get('brand')
             shop = request.POST.get('shop')
             contact = request.POST.get('contact_number')
