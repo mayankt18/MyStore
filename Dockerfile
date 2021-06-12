@@ -1,16 +1,13 @@
-FROM python
+FROM python:3
 
-ADD . /app
+ENV PYTHONUNBUFFERED=1
 
-COPY ./requirements.txt ./app/requirements.txt
+WORKDIR /code
 
-WORKDIR /app
-
-RUN pip install wheel
+COPY requirements.txt /code/
 
 RUN pip install -r requirements.txt
 
-COPY . /app
+COPY . /code/
 
-ENTRYPOINT python manage.py runserver
 
