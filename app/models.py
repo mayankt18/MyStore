@@ -23,6 +23,8 @@ class Product(models.Model):
         return str(self.id)
 
 
+
+
 STATE_CHOICES = (
     ('ANDHRA PRADESH', 'ANDHRA PRADESH'),
     ('ARUNANCHAL PRADESH', 'ARUNANCHAL PRADESH'),

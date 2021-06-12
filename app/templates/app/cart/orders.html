@@ -1,7 +1,10 @@
 {% extends 'app/base.html' %}
-
+{% load static %}
 {% block title %}Orders{% endblock title %}
 {% block content %}
+
+
+{% if op %}
 <div class="container my-5">
     <div class="row">
         <h3>Welcome {{request.user.username|capfirst}}</h3>
@@ -38,6 +41,19 @@
                     </div>
                 </div>
                 {% endfor %}
+
+                {% else %}
+                
+                <div class="container col-sm-9 offset-sm-1 text-center">
+                    
+                    <h3 class="text-center alert alert-info"><b>No orders yet!!!</b></h3>
+                    <div class="text-center">
+                        <img src="{% static 'images/empty/koala.jpg' %}" 
+                        alt="" class="mx-auto">
+                    </div>
+                </div>
+                
+                {% endif %}
             </div>
         </div>
     </div>

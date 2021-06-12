@@ -9,7 +9,6 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 
 
-
 def homepage(request):
     bottomwear = Product.objects.filter(category="BW")
     topwear = Product.objects.filter(category="TW")
@@ -221,14 +220,3 @@ def confirmation(request):
 def orders(request):
     op = Confirmation.objects.filter(user=request.user)
     return render(request, 'app/cart/orders.html', {'op':op})
-
-
-
-# categories = Category.objects.all()
-# all_products = []
-#     for category in categories:
-#         products = Product.objects.filter(category=category)
-#         all_products.append({'products': products, 'category':category])
-#     context = {
-#        'all_products': all_products,
-#     }
