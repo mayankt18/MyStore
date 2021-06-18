@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Seller's List{% endblock %}
+
+{% block content %}
+
+    {% if sellers %}
+    <h1 class="text-center"><b>Seller's List</b></h1>
+    <div class="container">
+        {% for seller in sellers %}
+
+                <div class="card border-warning mb-3" style="max-width: 100%;">
+                    <div class="card-header">Seller {{ forloop.counter }}</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Id: {{seller.id}}</h5>
+                        <h5 class="card-title">Username: {{seller.user.username}}</h5>
+                        <h5 class="card-title">Brand: {{seller.brand}}</h5>
+                        <h5 class="card-title">Shop: {{seller.shop}}</h5>
+                        <h5 class="card-title">Contact number: {{seller.contact_number}}</h5>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}

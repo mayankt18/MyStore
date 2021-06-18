@@ -51,12 +51,6 @@
               </a>
       
               <div class="navbar-dropdown">
-                <a class="navbar-item" href="{% url 'seller:listings' %}">
-                  My Listings
-                </a>
-                <a class="navbar-item" href="{% url 'seller:order-placed' %}">
-                  Orders Placed 
-                </a>
                 <a class="navbar-item" href="{%url 'seller:seller-profile'%}">
                   Seller Profile
                 </a>
@@ -66,6 +60,23 @@
                 <hr class="navbar-divider">
                 <a class="navbar-item">
                   Report an issue
+                </a>
+              </div>
+            </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link">
+                Products
+              </a>
+      
+              <div class="navbar-dropdown">
+                <a class="navbar-item" href="{% url 'seller:listings' %}">
+                  My Listings
+                </a>
+                <a class="navbar-item" href="{%url 'seller:pending-listings'%}">
+                  Pending Listings
+                </a>
+                <a class="navbar-item" href="{% url 'seller:order-placed' %}">
+                  Orders Placed 
                 </a>
               </div>
             </div>

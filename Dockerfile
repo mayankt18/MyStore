@@ -1,13 +1,20 @@
 FROM python:3
 
-ENV PYTHONUNBUFFERED=1
+RUN pip install --upgrade pip
 
-WORKDIR /code
+WORKDIR /app
 
-COPY requirements.txt /code/
+COPY ./requirements.txt .
 
 RUN pip install -r requirements.txt
 
-COPY . /code/
+COPY . .
 
-ENTRYPOINT docker-compose up
+
+
+RUN python manage.py collectstatic --no-input
+
+RUN python manage.py migrate --no-input
+
+
+# ENTRYPOINT ["sh","-c", "entrypoint.sh"]

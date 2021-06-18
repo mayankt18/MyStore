@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Homepage{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <h1 class="text-center text-4xl"><b>Moderator's Page</b></h1>
+    <br><br>
+    <h2 class="text-center text-4xl"><b>Welcome {{ request.user.username|capfirst }}</b></h2>
+    <br>
+    <img src="{% static 'images/seller/image.jpg' %}" alt="..." style="height: 550px; width: 600px;"
+        class="mx-auto">
+    
+</div>
+
+{% endblock %}
