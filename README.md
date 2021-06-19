@@ -78,7 +78,5 @@ Ecommerce website built with Django 3.2.2 and Python 3.8.6
 
 ```python
 python manage.py createsuperuser
-Username : admin
-Password : admin
 ```
 
