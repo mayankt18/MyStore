@@ -15,6 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.contrib.auth import views as auth_views
+from django.urls import reverse_lazy
+from app.forms import MyPasswordResetForm, MySetPasswordForm, LoginForm
 
 app_name = "base"
 
@@ -22,5 +25,19 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('app.urls')),
     path('seller/', include('seller.urls')),
-    path('moderator/', include('moderator.urls'))
+    path('moderator/', include('moderator.urls')),
+
+    path('password-reset/', auth_views.PasswordResetView.as_view
+    (template_name='app/pwdrst/password_reset.html', form_class=MyPasswordResetForm)
+    , name="password_reset"),
+    
+    path('password-reset/done/', auth_views.PasswordResetDoneView.as_view
+    (template_name='app/pwdrst/password_reset_done.html'), name='password_reset_done'),
+
+    path('password-reset-confirm/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view
+    (template_name='app/pwdrst/password_reset_confirm.html', 
+    form_class=MySetPasswordForm), name="password_reset_confirm"),
+
+    path('password-reset-complete/', auth_views.PasswordResetCompleteView.as_view
+    (template_name='app/pwdrst/password_reset_complete.html'), name="password_reset_complete"),
 ]

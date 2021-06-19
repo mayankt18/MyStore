@@ -10,6 +10,7 @@ Category_choices = (
 
 
 class Product(models.Model):
+    is_verified = models.BooleanField(default=False)
     name = models.CharField(max_length=300)
     description = models.TextField()
     price = models.FloatField()

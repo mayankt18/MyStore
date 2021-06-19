@@ -4,6 +4,7 @@ from app.models import Product
 
 
 class Seller(models.Model):
+    is_verified = models.BooleanField(default=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     brand = models.CharField(max_length=200)
     shop = models.CharField(max_length=200)

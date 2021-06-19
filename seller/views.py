@@ -1,5 +1,5 @@
 from app.views import login
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.contrib import messages
 from . models import SellerProduct, Seller, RawProduct
 from app.models import Product, Confirmation
@@ -36,10 +36,10 @@ def add_items(request):
         image = request.FILES['image']
         print(image)
         if form.is_valid():
-            product = RawProduct(name=name, description=description, price=price, discountedPrice=discountedPrice,
+            product = Product(name=name, description=description, price=price, discountedPrice=discountedPrice,
                                  category=category, brand=brand, image=image, seller=request.user.id)
             messages.success(
-                request, "Congratulations !!! New Item added successfully :)")
+                request, "Item saved for confirmation.")
             product.save()
     else:
         form = ItemAdditionForm()
@@ -58,7 +58,7 @@ def add_seller_profile(request):
             seller = Seller(user=user, brand=brand,
                             shop=shop, contact_number=contact)
             messages.success(
-                request, "Congratulations New Seller profile added.")
+                request, "New Seller profile saved for confirmation.")
             seller.save()
     else:
         form = SellerAdditionForm()
@@ -75,7 +75,7 @@ def seller_profile(request):
 @login_required
 def order_placed(request):
     user = request.user
-    confirmations = Confirmation.objects.filter(seller_id=user.id)
+    confirmations = Confirmation.objects.filter(seller_id=user.id).order_by('id').reverse()
     if confirmations:
         return render(request, 'seller/order_placed.html', {'confirmations': confirmations})
     else:
@@ -86,3 +86,16 @@ def order_placed(request):
 def pending_listings(request):
     products = RawProduct.objects.filter(seller=request.user.id)
     return render(request, 'seller/pending.html', {'products': products})
+
+@login_required
+def change_status(request, id):
+    product = Confirmation.objects.get(id=id)
+    product.order_status = request.POST.get('status')
+    print(product.order_status)
+    product.save()
+    return redirect('seller:order-placed')
+
+@login_required
+def product_detail(request, id):
+    confirmation = Confirmation.objects.get(id=id)
+    return render(request, 'seller/product_detail.html', {'c':confirmation})

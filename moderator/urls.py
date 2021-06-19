@@ -14,7 +14,12 @@ urlpatterns = [
 
     path('review_product/<int:id>', views.review_product, name="review-product"),
 
+    path('approve/<int:id>', views.approve, name="approve"),
+
     path('disapprove/<int:id>', views.disapprove, name="disapprove"),
 
-    path('pending_seller/', views.pending_seller, name="pending-seller")
+    path('pending_seller/', views.pending_seller, name="pending-seller"),
+
+    path('search/', views.searchbar, name="searchbar"),
+
 ]

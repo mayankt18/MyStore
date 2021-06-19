@@ -10,10 +10,10 @@ from django.utils.decorators import method_decorator
 
 
 def homepage(request):
-    bottomwear = Product.objects.filter(category="BW")
-    topwear = Product.objects.filter(category="TW")
-    mobiles = Product.objects.filter(category="M")
-    laptops = Product.objects.filter(category="L")
+    bottomwear = Product.objects.filter(category="BW",is_verified=True)
+    topwear = Product.objects.filter(category="TW",is_verified=True)
+    mobiles = Product.objects.filter(category="M",is_verified=True)
+    laptops = Product.objects.filter(category="L",is_verified=True)
     context = {'Mobiles':mobiles,
                 'Laptops':laptops,
                 'Topwear':topwear,
@@ -32,9 +32,9 @@ def product_detail(request, id):
 
 def products(request, tag=None):
     if tag==None:
-        product = Product.objects.all()
+        product = Product.objects.filter(is_verified=True)
     else:
-        product = Product.objects.filter(category=tag)
+        product = Product.objects.filter(category=tag,is_verified=True)
     return render(request, 'app/product.html', {'product':product})
 
 def searchbar(request):
@@ -46,6 +46,9 @@ def searchbar(request):
 
 def login(request):
     return render(request, 'app/user/login.html')
+
+def redirecter(request):
+    return redirect('/password-reset/')
 
 
 def register(request):
@@ -75,7 +78,7 @@ class ProfileView(View):
             city = form.cleaned_data['city']
             zipcode = form.cleaned_data['zipcode']
             state = form.cleaned_data['state']
-            reg = Customer(user= usr, locality=locality,city=city, state=state, zipcode=zipcode)
+            reg = Customer(user= usr, name=name, locality=locality,city=city, state=state, zipcode=zipcode)
             reg.save()
             messages.success(request, 'Congratulations!! Profile updated Successfully!!!')
         return render(request, 'app/user/profile.html', {'form':form, 'active':'btn-warning'})
@@ -93,6 +96,13 @@ def add_to_cart(request):
     Cart(user=user, product=product).save()
     return redirect('app:product-detail', id=product_id)
 
+@login_required
+def buy_now(request, id):
+    user = request.user
+    product_id=id
+    product = Product.objects.get(id=product_id)
+    Cart(user=user, product=product).save()
+    return redirect('app:checkout')
 
 @login_required
 def cart(request):

@@ -68,7 +68,8 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'app/templates'),
                  os.path.join(BASE_DIR, 'seller/templates'),
-                 os.path.join(BASE_DIR, 'moderator/templates')],
+                 os.path.join(BASE_DIR, 'moderator/templates'),
+                 os.path.join(BASE_DIR, 'mystore/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -89,14 +90,23 @@ WSGI_APPLICATION = 'mystore.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': 'db',
-        'PORT': 5432,
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'postgres',
+#         'USER': 'postgres',
+#         'PASSWORD': 'postgres',
+#         'HOST': 'db',
+#         'PORT': 5432,
+#     }
+# }
 
 
 # postgres://zyjerztppimivp:774ce91e37557f5f97a80a2f2e2c0e7187b03713e437ab4a986a2c29cc1b7bf3@ec2-3-89-0-52.compute-1.amazonaws.com:5432/d7ddmq6ip7t466

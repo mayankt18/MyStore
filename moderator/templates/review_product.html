@@ -4,42 +4,39 @@
 
 {% block content %}
 <div class="container my-5">
-    
+
     {% if messages %}
-      {% for msg in messages %}
-      <p {% if msg.tags %} class="alert alert-{{msg.tags}}" {% endif %}>{{msg}}</p>
-      {% endfor %}
-      {% endif %}
-    <form action="" method="post">
-        {% csrf_token %}
-        <div class="row">
-            <div class="col-sm-6 text-center align-self-center">
-                <img src="{{ p.image.url }}" alt="" class="img-fluid img-thumbnail" style="height: 500px;width: 400px">
-                <input type="hidden" name="image" id="image" value="{{p.image.url}}" readonly>
-            </div>
-            <div class="col-sm-5 offset-sm-1">
-                <h2 class="text-2xl">Product Title: 
-                    <input type="text" id="name" name="name" value="{{p.name}}" readonly></h2>
-                <hr>
-                <p class="text-xl"><strong>Product Description:</strong> 
-                    <input type="text" id="description" name="description" value="{{p.description}}" readonly></p> <br>
-                <p class="text-xl"><b>Discounted Price: 
-                    <input type="text" id="discountedPrice" name="discountedPrice" value="{{p.discountedPrice}}" readonly></b></p>
-                <p class="text-xl"><b>Price: 
-                    <input type="text" id="price" name="price" value="{{p.price}}" readonly></b></p>
-                <p class="text-xl"><b>Brand: 
-                    <input type="text" id="brand" name="brand" value="{{p.brand}}" readonly></b></p>
-                <p class="text-xl"><b>Category: 
-                    <input type="text" id="category" name="category" value="{{p.category}}" readonly></b></p>
-                <p class="text-xl"><b>Seller: 
-                    <input type="text" id="seller" name="seller" value="{{p.seller}}" readonly></b> </p>
-                <br><br>
-                
-                <button type="submit" class="btn btn-success mr-2">Approve</button>
-                <a href="{% url 'moderator:disapprove' p.id%}" class="btn btn-danger ml-2">Disapprove</a>
-                
-            </div>
+    {% for msg in messages %}
+    <p {% if msg.tags %} class="alert alert-{{msg.tags}}" {% endif %}>{{msg}}</p>
+    {% endfor %}
+    {% endif %}
+    <div class="row">
+        <div class="col-sm-6 text-center align-self-center">
+            <img src="{{ p.image.url }}" alt="" class="img-fluid img-thumbnail" style="height: 500px;width: 400px">
         </div>
+        <div class="col-sm-5 offset-sm-1">
+            <h2 class="text-2xl">Product Title:
+                <input type="text" id="name" name="name" value="{{p.name}}" readonly>
+            </h2>
+            <hr>
+            <p class="text-xl"><strong>Product Description:</strong> {{p.description}}</p> <br>
+            <p class="text-xl"><b>Discounted Price:
+                    {{p.discountedPrice}}</b></p>
+            <p class="text-xl"><b>Price:
+                    {{p.price}}</b></p>
+            <p class="text-xl"><b>Brand:
+                    {{p.brand}}</b></p>
+            <p class="text-xl"><b>Category:
+                    {{p.category}}</b></p>
+            <p class="text-xl"><b>Seller:
+                    {{p.seller}}</b> </p>
+            <br><br>
+
+            <a href="{% url 'moderator:approve' p.id%}" class="btn btn-success ml-2">Approve</a>
+            <a href="{% url 'moderator:disapprove' p.id%}" class="btn btn-danger ml-2">Disapprove</a>
+
+        </div>
+    </div>
     </form>
 </div>
 {% endblock %}

@@ -11,7 +11,7 @@ class SellerAdditionForm(forms.ModelForm):
     class Meta:
         model = Seller
         fields = '__all__'
-        exclude = ['user']
+        exclude = ['user','is_verified']
 
 
 class ItemAdditionForm(forms.ModelForm):
@@ -25,5 +25,5 @@ class ItemAdditionForm(forms.ModelForm):
     class Meta:
         model = Product
         fields = '__all__'
-        exclude = ['user','seller','product']
+        exclude = ['user','seller','product','is_verified']
    

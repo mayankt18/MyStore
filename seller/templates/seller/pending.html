@@ -11,8 +11,8 @@
                 <h5>{{forloop.counter}}</h5>
                 <div class="col-sm-3 text-center align-self-center">
                     {% if p.image %}
-                    <a href="{% url 'app:product-detail' p.id %}"><img src="{{p.image.url}}" alt=""
-                        srcset="" class="img-fluid img-thumbnail shadow-sm" height="150" width="150"></a>
+                    <img src="{{p.image.url}}" alt=""
+                        srcset="" class="img-fluid img-thumbnail shadow-sm" height="150" width="150">
                     {% endif %}
                 </div>
                 <div class="col-sm-9">

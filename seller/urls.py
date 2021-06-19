@@ -18,6 +18,10 @@ urlpatterns = [
 
     path('order_placed/', views.order_placed, name="order-placed"),
 
-    path('pending_listings/', views.pending_listings, name="pending-listings")
+    path('pending_listings/', views.pending_listings, name="pending-listings"),
+
+    path('change_status/<int:id>', views.change_status, name="change-status"),
+
+    path('product_detail/<int:id>', views.product_detail, name="product-detail")
 
 ]
