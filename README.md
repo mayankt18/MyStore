@@ -80,3 +80,18 @@ Ecommerce website built with Django 3.2.2 and Python 3.8.6
 python manage.py createsuperuser
 ```
 
+# To run using Docker
+
+- open terminal as root user (to do so type `sudo su` in the terminal)
+- Command to be given in the terminal
+- - `docker-compose up --build`
+
+- Open a new terminal and type `docker ps`
+- List of running containers will appear
+- Copy the id of container named mystore_mystore
+- In the terminal type `docker exec -it copied_id bash`
+- In the next line type `python manage.py createsuperuser`
+- This will ask for Username, Password and Email for the Super user account 
+- Complete the fields and press enter
+
+- In your browser head over to localhost
