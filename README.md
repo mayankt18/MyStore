@@ -65,6 +65,7 @@ python manage.py createsuperuser
 - open terminal as root user (to do so type `sudo su` in the terminal)
 - Command to be given in the terminal
 - - `docker-compose up --build`
+- Wait for the above process to finish
 
 - Open a new terminal and type `docker ps`
 - List of running containers will appear
