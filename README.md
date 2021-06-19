@@ -7,36 +7,16 @@
 
 Ecommerce website built with Django 3.2.2 and Python 3.8.6
 
-`Register`
-![image](https://github.com/mayankt18/MyStore/blob/main/screenshots/register.png)
-
-
-`Login`
-![image](https://github.com/mayankt18/MyStore/blob/main/screenshots/login.png)
-
-
 `Homepage`
 
 ![image](https://github.com/mayankt18/MyStore/blob/main/screenshots/homepage.png)
 
-
-`Offers`
-![image](https://github.com/mayankt18/MyStore/blob/main/screenshots/offers.png)
-
 `Product-Details`
-![image](https://github.com/mayankt18/MyStore/blob/main/screenshots/details.png)
 
+![image](https://github.com/mayankt18/MyStore/blob/main/screenshots/details.png)
 
 `Cart`
 ![image](https://github.com/mayankt18/MyStore/blob/main/screenshots/cart.png)
-
-
-`Checkout`
-![image](https://github.com/mayankt18/MyStore/blob/main/screenshots/checkout.png)
-
-
-`Order-Summary`
-![image](https://github.com/mayankt18/MyStore/blob/main/screenshots/ordersummary.png)
 
 # Requirements
 
