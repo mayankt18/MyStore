@@ -66,6 +66,10 @@ python manage.py createsuperuser
 - Command to be given in the terminal
 - - `docker-compose up --build`
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+- Wait for the above process to finish
+>>>>>>> db9074c650f7dd73bea57d1bbce0909a58a811bc
 =======
 - Wait for the above process to finish
 >>>>>>> db9074c650f7dd73bea57d1bbce0909a58a811bc
@@ -79,7 +83,11 @@ python manage.py createsuperuser
 - Complete the fields and press enter
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - In your browser head over to localhost
+=======
+- In your browser head over to localhost
+>>>>>>> db9074c650f7dd73bea57d1bbce0909a58a811bc
 =======
 - In your browser head over to localhost
 >>>>>>> db9074c650f7dd73bea57d1bbce0909a58a811bc
