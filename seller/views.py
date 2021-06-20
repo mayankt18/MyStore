@@ -84,7 +84,7 @@ def order_placed(request):
 
 @login_required
 def pending_listings(request):
-    products = RawProduct.objects.filter(seller=request.user.id)
+    products = Product.objects.filter(seller=request.user.id,is_verified=False)
     return render(request, 'seller/pending.html', {'products': products})
 
 @login_required
