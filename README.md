@@ -65,14 +65,7 @@ python manage.py createsuperuser
 - open terminal as root user (to do so type `sudo su` in the terminal)
 - Command to be given in the terminal
 - - `docker-compose up --build`
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 - Wait for the above process to finish
->>>>>>> db9074c650f7dd73bea57d1bbce0909a58a811bc
-=======
-- Wait for the above process to finish
->>>>>>> db9074c650f7dd73bea57d1bbce0909a58a811bc
 
 - Open a new terminal and type `docker ps`
 - List of running containers will appear
@@ -81,13 +74,4 @@ python manage.py createsuperuser
 - In the next line type `python manage.py createsuperuser`
 - This will ask for Username, Password and Email for the Super user account 
 - Complete the fields and press enter
-
-<<<<<<< HEAD
-<<<<<<< HEAD
 - In your browser head over to localhost
-=======
-- In your browser head over to localhost
->>>>>>> db9074c650f7dd73bea57d1bbce0909a58a811bc
-=======
-- In your browser head over to localhost
->>>>>>> db9074c650f7dd73bea57d1bbce0909a58a811bc
