@@ -1,9 +1,10 @@
 from app.forms import LoginForm, ChangePasswordForm, MyPasswordResetForm, MySetPasswordForm
-from django.urls import path, reverse_lazy
+from django.urls import path, reverse_lazy, include
 from django.conf import settings
 from django.conf.urls.static import static
 from . import views
 from django.contrib.auth import views as auth_views
+
 
 app_name="app"
 
@@ -53,6 +54,6 @@ urlpatterns = [
 
     path('redirecter/', views.redirecter, name="redirecter"),
 
-    path('buy_now/<int:id>', views.buy_now, name="buy-now")
+    path('buy_now/<int:id>', views.buy_now, name="buy-now"),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

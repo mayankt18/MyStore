@@ -12,7 +12,7 @@ services:
 
   mystore:
     volumes:
-      - static:/app/static
+      - .:/app/
     env_file:
       - .env
     build:

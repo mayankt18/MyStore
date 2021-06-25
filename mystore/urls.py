@@ -40,4 +40,7 @@ urlpatterns = [
 
     path('password-reset-complete/', auth_views.PasswordResetCompleteView.as_view
     (template_name='app/pwdrst/password_reset_complete.html'), name="password_reset_complete"),
+
+    path('api/', include('moderator.api.urls'))
+
 ]

@@ -15,7 +15,7 @@ def seller(request):
 
 @login_required
 def listings(request):
-    products = Product.objects.filter(seller=request.user.id)
+    products = Product.objects.filter(seller=request.user.id, is_verified=True)
     print(products)
     if products:
         return render(request, 'seller/listings.html', {'products': products})
