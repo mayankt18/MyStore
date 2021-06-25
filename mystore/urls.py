@@ -44,3 +44,7 @@ urlpatterns = [
     path('api/', include('moderator.api.urls'))
 
 ]
+
+urlpatterns += [
+    path('api-auth/', include('rest_framework.urls'))
+]
