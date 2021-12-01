@@ -9,51 +9,53 @@
 <div id="page">
 
   <div class="overlay" style="position:relative;height: 100%;width: 100%;">
-    
-    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel"
-    style="position:absolute;">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="{% static 'images/carousel/bats.jpg' %}" class="d-block w-100" alt="...">
+
+    <div id="carouselExampleControls" class="carousel slide w-100" data-bs-ride="carousel" style="position:absolute;">
+      <div class="carousel-inner">
+        <div class="carousel-item active w-100">
+          <img src="{% static 'images/carousel/bats.jpg' %}" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item  w-100">
+          <img src="{% static 'images/carousel/electronics.jpg' %}" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item w-100">
+          <img src="{% static 'images/carousel/samsungm21.jpg' %}" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item w-100">
+          <img src="{% static 'images/carousel/supersaver.jpg' %}" class="d-block w-100" alt="...">
+        </div>
       </div>
-      <div class="carousel-item">
-        <img src="{% static 'images/carousel/electronics.jpg' %}" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="{% static 'images/carousel/samsungm21.jpg' %}" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="{% static 'images/carousel/supersaver.jpg' %}" class="d-block w-100" alt="...">
-      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
-  <!-- END CAROUSEL -->
-  <br>
-  <!-- SALE -->
-  <div class="p-4 mb-4 text-dark rounded container shadow" id="sale" style="z-index: 9;
+    <!-- END CAROUSEL -->
+    <br>
+    <!-- SALE -->
+    <div class="p-4 mb-4 text-dark rounded container shadow" id="sale" style="z-index: 9;
   margin-top: 25em;position:relative;background-color:#f8ac55;color:whitesmoke">
-  <div class="col-md-6 px-0 container">
-    <h1 class="display-4 fst-italic">Sale is Live Now !!!</h1>
-    <p class="lead my-3">Get flat 90% discount on products starting with Rs. 999,
-      and flat 50% discount on products starting with Rs. 499. So, what are you waiting for. <strong>Hurry
-        Up!!!</strong></p>
-        <p class="lead mb-0"><a href="{%url 'app:products'%}" class="text-dark fw-bold btn btn-success">View Products</a></p>
+      <div class="col-md-6 px-0 container">
+        <h1 class="display-4 fst-italic">Sale is Live Now !!!</h1>
+        <p class="lead my-3">Get flat 90% discount on products starting with Rs. 999,
+          and flat 50% discount on products starting with Rs. 499. So, what are you waiting for. <strong>Hurry
+            Up!!!</strong></p>
+        <p class="lead mb-0"><a href="{%url 'app:products'%}" class="text-dark fw-bold btn btn-success">View
+            Products</a></p>
       </div>
     </div>
     <!-- SALE ENDS -->
   </div>
   <br>
-  
+
   <!-- Owl carousel -->
-  
+
   <!-- Mobiles -->
   <div class="mobiles">
     <div class="container">
@@ -61,14 +63,15 @@
       <div class="owl-carousel">
         {% for c in Mobiles %}
         <div class="item"><a href="{% url 'app:product-detail' c.id %}"><img src="{{ c.image.url }}" alt=""
-          height="300px"></a></a><span class="fw-bold">{{c.name}}</span><br><span class="fs-5">Rs.{{c.discountedPrice}}</span>
+              height="300px"></a></a><span class="fw-bold">{{c.name}}</span><br><span
+            class="fs-5">Rs.{{c.discountedPrice}}</span>
         </div>
         {% endfor %}
       </div>
     </div>
   </div>
-  
-  
+
+
   <!-- Laptops -->
   <div class="laptops">
     <div class="container">
@@ -76,14 +79,15 @@
       <div class="owl-carousel">
         {% for c in Laptops %}
         <div class="item"><a href="{% url 'app:product-detail' c.id %}"><img src="{{ c.image.url }}" alt=""
-          height="300px"></a></a><span class="fw-bold">{{c.name}}</span><br><span class="fs-5">Rs.{{c.discountedPrice}}</span>
+              height="300px"></a></a><span class="fw-bold">{{c.name}}</span><br><span
+            class="fs-5">Rs.{{c.discountedPrice}}</span>
         </div>
         {% endfor %}
       </div>
     </div>
   </div>
-  
-  
+
+
   <!-- Topwear -->
   <div class="topwear">
     <div class="container">
@@ -91,14 +95,15 @@
       <div class="owl-carousel">
         {% for c in Topwear %}
         <div class="item"><a href="{% url 'app:product-detail' c.id %}"><img src="{{ c.image.url }}" alt=""
-          height="300px"></a></a><span class="fw-bold">{{c.name}}</span><br><span class="fs-5">Rs.{{c.discountedPrice}}</span>
+              height="300px"></a></a><span class="fw-bold">{{c.name}}</span><br><span
+            class="fs-5">Rs.{{c.discountedPrice}}</span>
         </div>
         {% endfor %}
       </div>
     </div>
   </div>
-  
-  
+
+
   <!-- Bottomwear -->
   <div class="bottomwear">
     <div class="container">
@@ -106,13 +111,14 @@
       <div class="owl-carousel">
         {% for c in Bottomwear %}
         <div class="item"><a href="{% url 'app:product-detail' c.id %}"><img src="{{ c.image.url }}" alt=""
-          height="300px"></a></a><span class="fw-bold">{{c.name}}</span><br><span class="fs-5">Rs.{{c.discountedPrice}}</span>
+              height="300px"></a></a><span class="fw-bold">{{c.name}}</span><br><span
+            class="fs-5">Rs.{{c.discountedPrice}}</span>
         </div>
         {% endfor %}
       </div>
     </div>
   </div>
-  
+
 </div>
-  
-  {% endblock %}
+
+{% endblock %}

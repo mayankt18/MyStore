@@ -14,6 +14,8 @@ from decouple import config
 
 from pathlib import Path
 
+import django_heroku
+
 
 import os
 
@@ -33,7 +35,8 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = [
     'mystore-476.herokuapp.com',
-    '*'
+    'onlinestorenow.herokuapp.com',
+    '127.0.0.1'
 ]
 
 
@@ -89,29 +92,26 @@ WSGI_APPLICATION = 'mystore.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': 'db',
-        'PORT': 5432,
+if config('HOSTED') == True:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'postgres',
+            'USER': config('USER'),
+            'PASSWORD': config('PASSWORD'),
+            'HOST': config('HOST'),
+            'PORT': config('PORT'),
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 
-# postgres://zyjerztppimivp:774ce91e37557f5f97a80a2f2e2c0e7187b03713e437ab4a986a2c29cc1b7bf3@ec2-3-89-0-52.compute-1.amazonaws.com:5432/d7ddmq6ip7t466
-# Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -151,7 +151,7 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 # Default primary key field type
@@ -175,7 +175,9 @@ REST_FRAMEWORK = {
     #     'rest_framework.parsers.JSONParser',
     # ],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE':3
+    'PAGE_SIZE': 3
 }
 
 USE_X_FORWARDED_HOST = True
+
+django_heroku.settings(locals())

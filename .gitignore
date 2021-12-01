@@ -3,3 +3,7 @@ db.sqlite3
 screenshots
 .vscode
 .env
+docker-compose.yml
+Dockerfile
+entrypoint.sh 
+
