@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Pending products{% endblock %}
+
+{% block content %}
+
+    {% if pending %}
+    <h1 class="text-center"><b>Pending Products</b></h1>
+    <div class="container">
+        {% for p in pending %}
+
+        <div class="card mb-2">
+            <div class="card-body hover:bg-gray-200">
+                <div class="row">
+                    <h5>{{forloop.counter}}</h5>
+                    <div class="col-sm-3 text-center align-self-center">
+                        {% if p.image %}
+                        <a href="{% url 'moderator:review-product' p.id %}"><img src="{{p.image.url}}" alt=""
+                            srcset="" class="img-fluid img-thumbnail shadow-sm" height="150" width="150"></a>
+                        {% endif %}
+                    </div>
+                    <div class="col-sm-9">
+                        
+                        <h5>Product: {{p.name}}</h5>
+                        <p class="fw-bold">Price: Rs.{{p.price}}</p>
+                        <p class="fw-bold">Discounted Price: Rs. {{p.discountedPrice}}</p>
+                        <p class="fw-bold">Description: {{p.description}}</p>
+                        <p class="fw-bold">Price: Rs.{{p.price}}</p>
+                        <p class="fw-bold">Category: {{p.category}}</p>
+                        <p class="fw-bold">Brand: {{p.brand}}</p>
+                        <p class="fw-bold">Seller ID: {{p.seller}}</p>
+
+
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="container">
+            <p class="text-center text-3xl">No Pending products</p>
+            <br>
+            <img src="{% static 'images/empty/puppy3.jpg' %}" alt="..." class="mx-auto">
+        </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block title %} Pending Seller's {% endblock %} 
+{% block content %} 
+{% if pending %}
+<h1 class="text-center"><b>Pending Seller Profiles</b></h1>
+<div class="container">
+  {% for p in pending %}
+
+  <div class="card mb-2">
+    <div class="card-body hover:bg-gray-200">
+      <div class="row">
+        <h5>{{forloop.counter}}</h5>
+        <div class="col-sm-9">
+          <h5>Product: {{p.name}}</h5>
+          <p class="fw-bold">User: {{p.user.username}}</p>
+          <p class="fw-bold">Brand: {{p.brand}}</p>
+          <p class="fw-bold">Shop: {{p.shop}}</p>
+          <p class="fw-bold">Contact Number: Rs.{{p.contact_number}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% else %}
+<div class="container">
+  <p class="text-center text-3xl">No Pending Seller's</p>
+  <br />
+  <img src="{% static 'images/empty/puppy3.jpg' %}" alt="..." class="mx-auto" />
+</div>
+{% endif %} {% endblock %}

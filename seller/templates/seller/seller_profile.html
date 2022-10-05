@@ -1,8 +1,9 @@
 {% extends 'seller/core/base.html' %}
-
+{% load static %}
 {% block title %}Add Sellers{% endblock %}
 
 {% block content %}
+{% if sellers %}
 <div class="container my-5">
     <div class="row">
         <div class="col-sm-8">
@@ -23,4 +24,20 @@
         </div>
     </div>
 </div>
+{% else %}
+<div class="container mx-auto col-sm-6">
+    <h3 class="text-center alert alert-info"><b>Please add a seller profile to start adding products</b></h3>
+    
+
+        <a href="{% url 'seller:add-seller-profile' %}"><button class="button is-success is-medium">
+            Add seller profile</button>
+        </a>
+    
+    <div class="text-center">
+        <img src="{% static 'images/empty/puppy.jpg' %}" 
+        alt="" height="300px" width="300px" class="mx-auto">
+    </div>
+</div>
+{% endif %}
+
 {% endblock %}

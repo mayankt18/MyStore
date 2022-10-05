@@ -1,9 +1,10 @@
 from app.forms import LoginForm, ChangePasswordForm, MyPasswordResetForm, MySetPasswordForm
-from django.urls import path
+from django.urls import path, reverse_lazy, include
 from django.conf import settings
 from django.conf.urls.static import static
 from . import views
 from django.contrib.auth import views as auth_views
+
 
 app_name="app"
 
@@ -17,7 +18,7 @@ urlpatterns = [
     path('search/', views.searchbar, name="searchbar"),
     
     path('products/<slug:tag>', views.products, name="filter-products"),
-    
+
     path('accounts/login/', auth_views.LoginView.as_view(template_name="app/user/login.html",
     authentication_form=LoginForm), name="login"),
     
@@ -34,18 +35,6 @@ urlpatterns = [
     
     path('password-changed/', auth_views.PasswordChangeDoneView.as_view(template_name='app/user/passwordchangesuccess.html'),
     name='password-change-success'),
-    
-    path('password-reset/', auth_views.PasswordResetView.as_view
-    (template_name='app/pwdrst/password_reset.html', form_class=MyPasswordResetForm), name="password-reset"),
-    
-    path('password-reset/done/', auth_views.PasswordResetDoneView.as_view
-    (template_name='app/pwdrst/password_reset_done.html'), name="password_reset_done"),
-
-    path('password-reset-confirm/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view
-    (template_name='app/pwdrst/password_reset_confirm.html', form_class=MySetPasswordForm), name="password_reset_confirm"),
-
-    path('password-reset-complete/', auth_views.PasswordResetCompleteView.as_view
-    (template_name='app/pwdrst/password_reset_complete.html'), name="password_reset_complete"),
 
     path('add-to-cart/', views.add_to_cart, name="add_to_cart"),
 
@@ -62,5 +51,9 @@ urlpatterns = [
     path('confirmation/', views.confirmation, name="confirmation"),
 
     path('orders', views.orders, name="orders"),
+
+    path('redirecter/', views.redirecter, name="redirecter"),
+
+    path('buy_now/<int:id>', views.buy_now, name="buy-now"),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -4,25 +4,25 @@
 
 {% block content %}
 {% for c in confirmations %}
-<div class="container">
+<div class="container col-sm">
 
     <div class="card mb-2">
-        <div class="card-body hover:bg-yellow-100">
+        <div class="card-body hover:bg-gray-300">
             <div class="row">
                 <h5>{{forloop.counter}}</h5>
                 <div class="col-sm-3 text-center align-self-center">
                     {% if c.product.image %}
-                    <a href="{% url 'app:product-detail' c.product.id %}"><img src="{{c.product.image.url}}" alt=""
+                    <a href="{% url 'seller:product-detail' c.id %}" class="mx-auto"><img src="{{c.product.image.url}}" alt=""
                             srcset="" class="img-fluid img-thumbnail shadow-sm" height="150" width="150"></a>
                     {% endif %}
                 </div>
-                <div class="col-sm-9">
+                <div class="col-sm-4">
 
                     <h5>Product: {{c.product.name}}</h5>
                     <p class="fw-bold">Price: Rs.{{c.product.price}}</p>
                     <p class="fw-bold">Discounted Price: Rs. {{c.product.discountedPrice}}</p>
                     <p class="fw-bold">Order-Status: {{c.order_status}}</p>
-                    <p class="fw-bold">Quantity: Rs.{{c.quantity}}</p>
+                    <p class="fw-bold">Quantity: {{c.quantity}}</p>
                     <p class="fw-bold">Total-cost: Rs.{{c.total_cost}}</p>
                     <br>
                     <h3 class="text-xl"><b>Customer Details</b></h3>
@@ -31,6 +31,37 @@
                     <p class="fw-bold">City: {{c.customer.city}}</p>
                     <p class="fw-bold">Zipcode: {{c.customer.zipcode}}</p>
                     <p class="fw-bold">State: {{c.customer.state}}</p>
+                </div>
+                <div class="col-sm-5 my-auto">
+                    {% ifequal c.order_status 'PENDING' %}
+                        <progress class="progress is-link mx-auto" value="15" max="100">15%</progress>
+                        <p class="text-center"><b>{{c.order_status}}</b></p>
+                    {% endifequal %}
+
+                    {% ifequal c.order_status 'ACCEPTED' %}
+                        <progress class="progress is-link mx-auto" value="30" max="100">30%</progress>
+                        <p class="text-center"><b>{{c.order_status}}</b></p>
+                    {% endifequal %}
+
+                    {% ifequal c.order_status 'PACKED' %}
+                        <progress class="progress is-link mx-auto" value="45" max="100">45%</progress>
+                        <p class="text-center"><b>{{c.order_status}}</b></p>
+                    {% endifequal %}
+
+                    {% ifequal c.order_status 'SHIPPED' %}
+                        <progress class="progress is-link mx-auto" value="65" max="100">60%</progress>
+                        <p class="text-center"><b>{{c.order_status}}</b></p>
+                    {% endifequal %}
+
+                    {% ifequal c.order_status 'ON THE WAY' %}
+                        <progress class="progress is-lind mx-auto" value="85" max="100">85%</progress>
+                        <p class="text-center"><b>{{c.order_status}}</b></p>
+                    {% endifequal %}
+
+                    {% ifequal c.order_status 'DELIVERED' %}
+                        <progress class="progress is-success mx-auto" value="100" max="100">100%</progress>
+                        <p class="text-center"><b>{{c.order_status}}</b></p>
+                    {% endifequal %}
                 </div>
             </div>
 

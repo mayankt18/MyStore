@@ -10,9 +10,10 @@
         <div class="col-sm-5 offset-sm-1">
             <h2>Product Title: {{p.name}}</h2>
             <hr>
-            <p><strong>Product Description:</strong> {{p.description}}</p> <br>
-            <h4 style="color: green">Rs. {{p.discountedPrice}} <br><small class="fw-dark text-decoration-line-through"
-                    style="color: red">Rs. {{p.price}}</small></h4> <br>
+            <p><strong>Product Description:</strong> {{p.description}}</p>
+            <p><strong>Product Brand:</strong> {{p.brand}}</p> <br>
+            <h4 style="color: green"><b>Discounted Price : </b> Rs. {{p.discountedPrice}} <br><small class="fw-dark text-decoration-line-through"
+                    style="color: red"><b>Price :</b> Rs. {{p.price}}</small></h4> <br>
             {% if request.user.is_authenticated %}
                 {% if carted_item %}
                     <a href="{% url 'app:cart' %}" class="btn btn-warning shadow px-5 py-2">Go to Cart</a>
@@ -24,7 +25,7 @@
                         Add to Cart
                     </button>
                 </form>
-                <a href="{% url 'app:checkout' %}" class="btn btn-danger shadow px-5 py-2 ms-4">Buy Now</a>
+                <a href="{% url 'app:buy-now' p.id %}" class="btn btn-danger shadow px-5 py-2 ms-4">Buy Now</a>
                 {% endif %}
             {% else %}
                 <a href="{% url 'app:login' %}" class="btn btn-success shadow px-5 py-2">login</a>
